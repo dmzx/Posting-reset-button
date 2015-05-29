@@ -1,0 +1,27 @@
+{
+	"name": "dmzx/postingresetbutton",
+	"type": "phpbb-extension",
+	"description": "Displays reset button in posting buttons.",
+	"homepage": "http://www.dmzx-web.net",
+	"version": "1.0.0",
+	"time": "2015-05-29",
+	"keywords": ["phpbb", "extension", "Posting reset button"],
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "dmzx",
+			"homepage": "http://www.dmzx-web.net",
+			"email": "info@dmzx-web.net",
+			"role": "Extension Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"extra": {
+		"display-name": "Posting reset button",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.0-a1,<3.2.*@dev"
+		}
+	}
+}
