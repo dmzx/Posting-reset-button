@@ -1,0 +1,52 @@
+<div class="panel">
+	<div class="inner">
+
+	<div class="column1">
+		<h3>{L_CONTACT_USER}</h3>
+
+		<dl class="details">
+		<!-- IF U_EMAIL --><dt>{L_EMAIL_ADDRESS}{L_COLON}</dt> <dd><a href="{U_EMAIL}">{L_SEND_EMAIL_USER}</a></dd><!-- ENDIF -->
+		<!-- IF U_PM --><dt>{L_PM}{L_COLON}</dt> <dd><a href="{U_PM}">{L_SEND_PRIVATE_MESSAGE}</a></dd><!-- ENDIF -->
+		<!-- IF U_JABBER and S_JABBER_ENABLED --><dt>{L_JABBER}{L_COLON}</dt> <dd><a href="{U_JABBER}" onclick="popup(this.href, 750, 320); return false;">{L_SEND_JABBER_MESSAGE}</a></dd><!-- ELSEIF USER_JABBER --><dt>{L_JABBER}{L_COLON}</dt> <dd>{USER_JABBER}</dd><!-- ENDIF -->
+		<!-- BEGIN custom_fields -->
+			<!-- IF custom_fields.S_PROFILE_CONTACT -->
+				<dt>{custom_fields.PROFILE_FIELD_NAME}{L_COLON}</dt>
+				<!-- IF custom_fields.PROFILE_FIELD_CONTACT -->
+					<dd><a href="{custom_fields.PROFILE_FIELD_CONTACT}">{custom_fields.PROFILE_FIELD_DESC}</a></dd>
+				<!-- ELSE -->
+					<dd>{custom_fields.PROFILE_FIELD_VALUE}</dd>
+				<!-- ENDIF -->
+			<!-- ENDIF -->
+		<!-- END custom_fields -->
+		<!-- IF S_PROFILE_FIELD1 -->
+			<!-- NOTE: Use a construct like this to include admin defined profile fields. Replace FIELD1 with the name of your field. -->
+			<dt>{PROFILE_FIELD1_NAME}{L_COLON}</dt> <dd>{PROFILE_FIELD1_VALUE}</dd>
+		<!-- ENDIF -->
+		</dl>
+	</div>
+
+	<div class="column2">
+		<h3>{L_USER_FORUM}</h3>
+		<dl class="details">
+			<!-- EVENT memberlist_view_user_statistics_before -->
+			<dt>{L_JOINED}{L_COLON}</dt> <dd>{JOINED}</dd>
+			<dt>{L_LAST_ACTIVE}{L_COLON}</dt> <dd>{LAST_ACTIVE}</dd>
+			<!-- IF S_WARNINGS -->
+			<dt>{L_WARNINGS}{L_COLON} </dt>
+			<dd><strong>{WARNINGS}</strong><!-- IF U_NOTES or U_WARN --> [ <!-- IF U_NOTES --><a href="{U_NOTES}">{L_VIEW_NOTES}</a><!-- ENDIF --> <!-- IF U_WARN --><!-- IF U_NOTES --> | <!-- ENDIF --><a href="{U_WARN}">{L_WARN_USER}</a><!-- ENDIF --> ]<!-- ENDIF --></dd>
+			<!-- ENDIF -->
+			<dt>{L_TOTAL_POSTS}{L_COLON}</dt>
+				<dd>{POSTS} <!-- IF S_DISPLAY_SEARCH -->| <strong><a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a></strong><!-- ENDIF -->
+					<!-- IF POSTS_PCT --><br />({POSTS_PCT} / {POSTS_DAY})<!-- ENDIF -->
+					<!-- IF POSTS_IN_QUEUE and U_MCP_QUEUE --><br />(<a href="{U_MCP_QUEUE}">{L_POSTS_IN_QUEUE}</a>)<!-- ELSEIF POSTS_IN_QUEUE --><br />({L_POSTS_IN_QUEUE})<!-- ENDIF -->
+				</dd>
+			<!-- IF S_SHOW_ACTIVITY and POSTS -->
+				<dt>{L_ACTIVE_IN_FORUM}{L_COLON}</dt> <dd><!-- IF ACTIVE_FORUM != '' --><strong><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+				<dt>{L_ACTIVE_IN_TOPIC}{L_COLON}</dt> <dd><!-- IF ACTIVE_TOPIC != '' --><strong><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+			<!-- ENDIF -->
+			<!-- EVENT memberlist_view_user_statistics_after -->
+		</dl>
+	</div>
+
+	</div>
+</div>
