@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "Displays reset and cancel button in posting buttons.",
 	"homepage": "http://www.dmzx-web.net",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"time": "2015-05-29",
 	"keywords": ["phpbb", "extension", "Posting reset button"],
 	"license": "GPL-2.0",
@@ -21,7 +21,12 @@
 	"extra": {
 		"display-name": "Posting reset button",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.1.0-a1,<3.2.*@dev"
+			"phpbb/phpbb": ">=3.1.6-RC1,<3.2.*@dev"
+		},
+		"version-check": {
+			"host": "www.dmzx-web.net",
+			"directory": "/versions",
+			"filename": "postingresetbutton_version.json"
 		}
 	}
 }
