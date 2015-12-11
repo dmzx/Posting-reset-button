@@ -1,5 +1,7 @@
 # phpBB Posting reset button Extension
 
+[![Build Status](https://travis-ci.org/dmzx/Posting-reset-button.svg?branch=master)](https://travis-ci.org/dmzx/Posting-reset-button)
+
 ## Install
 
 1. Download the latest release.
